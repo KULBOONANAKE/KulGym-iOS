@@ -28,6 +28,7 @@
 		71DC632A2A14F54C001ABBC6 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63292A14F54C001ABBC6 /* ChallengeListView.swift */; };
 		71DC632C2A14F55D001ABBC6 /* ChallengeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC632B2A14F55D001ABBC6 /* ChallengeListViewModel.swift */; };
 		71DC632E2A14F606001ABBC6 /* QuerySnaoshotPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC632D2A14F606001ABBC6 /* QuerySnaoshotPublishers.swift */; };
+		71DC63332A151043001ABBC6 /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63322A151043001ABBC6 /* ChallengeItemViewModel.swift */; };
 		F7014D2A081EC7731B544DF7 /* Pods_Increment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35723B4F8FFC2F6D439A520F /* Pods_Increment.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		71DC63292A14F54C001ABBC6 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
 		71DC632B2A14F55D001ABBC6 /* ChallengeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListViewModel.swift; sourceTree = "<group>"; };
 		71DC632D2A14F606001ABBC6 /* QuerySnaoshotPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySnaoshotPublishers.swift; sourceTree = "<group>"; };
+		71DC63322A151043001ABBC6 /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,9 @@
 				71DC631D2A14C288001ABBC6 /* Models */,
 				71DC631A2A14B1C1001ABBC6 /* Services */,
 				71DC63132A148DB1001ABBC6 /* ViewModels */,
-				71DC62FB2A146CFC001ABBC6 /* IncrementApp.swift */,
 				71DC632F2A14FB52001ABBC6 /* View */,
 				71DC62FF2A146CFF001ABBC6 /* Assets.xcassets */,
+				71DC62FB2A146CFC001ABBC6 /* IncrementApp.swift */,
 				71DC63222A14D3EB001ABBC6 /* IncrementError.swift */,
 				71DC63182A14A629001ABBC6 /* GoogleService-Info.plist */,
 				71DC63012A146CFF001ABBC6 /* Preview Content */,
@@ -122,6 +124,7 @@
 				71DC63142A148DC6001ABBC6 /* CreateChallengeViewModel.swift */,
 				71DC63162A148E34001ABBC6 /* DropdownItemProtocol.swift */,
 				71DC632B2A14F55D001ABBC6 /* ChallengeListViewModel.swift */,
+				71DC63322A151043001ABBC6 /* ChallengeItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				71DC632C2A14F55D001ABBC6 /* ChallengeListViewModel.swift in Sources */,
 				71DC630E2A1486EF001ABBC6 /* CreateView.swift in Sources */,
 				71DC63212A14C314001ABBC6 /* ChallengeService.swift in Sources */,
+				71DC63332A151043001ABBC6 /* ChallengeItemViewModel.swift in Sources */,
 				71DC632A2A14F54C001ABBC6 /* ChallengeListView.swift in Sources */,
 				71DC63152A148DC6001ABBC6 /* CreateChallengeViewModel.swift in Sources */,
 				71DC63102A14872D001ABBC6 /* DropdownView.swift in Sources */,

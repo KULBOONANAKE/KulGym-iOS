@@ -19,6 +19,7 @@ struct IncrementApp: App {
         WindowGroup {
             if appState.isLoggedIn {
                 TabContainerView()
+//                ContentView()
             }
             else {
                 ContentView()
@@ -40,7 +41,6 @@ class AppState: ObservableObject {
     @Published private(set) var isLoggedIn = false
     
     private let userService: UserServiceProtocol
-    
     init(userService: UserServiceProtocol = UserService()){
         self.userService = userService
         userService

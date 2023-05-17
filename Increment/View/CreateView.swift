@@ -29,9 +29,6 @@ struct CreateView : View {
                 } label: {
                     Text("Create").font(.system(size: 24, weight: .medium))
                 }
-                
-                
-                
             }
         }
     }
