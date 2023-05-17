@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isActive = false
+    @StateObject private var viewModel = ContentViewModel()
     var body: some View {
         NavigationView {
             GeometryReader { proxy in
@@ -19,10 +19,10 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     Spacer()
                     NavigationLink(destination:
-                                    CreateView(), isActive: $isActive
+                                    CreateView(), isActive: $viewModel.createPushed
                     ){
                         Button(action: {
-                            isActive = true
+                            viewModel.createPushed = true
                         }) {
                             HStack(spacing: 15) {
                                 Spacer()
@@ -38,8 +38,13 @@ struct ContentView: View {
                         .padding(15)
                         .buttonStyle(PrimaryButtonStyle())
                     }
-                    
-                }.frame(
+                    NavigationLink(destination: LoginSignupView(), isActive: $viewModel.loginSignupPushed){}
+                    Button("I already have an account") {
+                        viewModel.loginSignupPushed = true
+                    }.foregroundColor(.white)
+                }
+                .padding(.bottom, 15)
+                .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity
                 )

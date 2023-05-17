@@ -32,6 +32,9 @@
 		71DC63352A156444001ABBC6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63342A156444001ABBC6 /* SettingView.swift */; };
 		71DC63372A156453001ABBC6 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63362A156453001ABBC6 /* SettingViewModel.swift */; };
 		71DC63392A15646B001ABBC6 /* SettingItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63382A15646B001ABBC6 /* SettingItemViewModel.swift */; };
+		71DC633B2A156DA1001ABBC6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC633A2A156DA1001ABBC6 /* ContentViewModel.swift */; };
+		71DC633D2A156FA4001ABBC6 /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC633C2A156FA4001ABBC6 /* LoginSignupView.swift */; };
+		71DC633F2A157000001ABBC6 /* LoginSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC633E2A157000001ABBC6 /* LoginSignupViewModel.swift */; };
 		F7014D2A081EC7731B544DF7 /* Pods_Increment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35723B4F8FFC2F6D439A520F /* Pods_Increment.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		71DC63342A156444001ABBC6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		71DC63362A156453001ABBC6 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		71DC63382A15646B001ABBC6 /* SettingItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItemViewModel.swift; sourceTree = "<group>"; };
+		71DC633A2A156DA1001ABBC6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		71DC633C2A156FA4001ABBC6 /* LoginSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
+		71DC633E2A157000001ABBC6 /* LoginSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,8 @@
 				71DC63322A151043001ABBC6 /* ChallengeItemViewModel.swift */,
 				71DC63362A156453001ABBC6 /* SettingViewModel.swift */,
 				71DC63382A15646B001ABBC6 /* SettingItemViewModel.swift */,
+				71DC633A2A156DA1001ABBC6 /* ContentViewModel.swift */,
+				71DC633E2A157000001ABBC6 /* LoginSignupViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				71DC63272A14DBDB001ABBC6 /* TabContainerView.swift */,
 				71DC63292A14F54C001ABBC6 /* ChallengeListView.swift */,
 				71DC63342A156444001ABBC6 /* SettingView.swift */,
+				71DC633C2A156FA4001ABBC6 /* LoginSignupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,16 +341,19 @@
 				71DC62FE2A146CFC001ABBC6 /* ContentView.swift in Sources */,
 				71DC62FC2A146CFC001ABBC6 /* IncrementApp.swift in Sources */,
 				71DC630C2A146FA4001ABBC6 /* Color+Extension.swift in Sources */,
+				71DC633F2A157000001ABBC6 /* LoginSignupViewModel.swift in Sources */,
 				71DC631F2A14C29B001ABBC6 /* Challenge.swift in Sources */,
 				71DC632E2A14F606001ABBC6 /* QuerySnaoshotPublishers.swift in Sources */,
 				71DC63172A148E34001ABBC6 /* DropdownItemProtocol.swift in Sources */,
 				71DC63122A148AD2001ABBC6 /* RemindView.swift in Sources */,
 				71DC631C2A14B1D5001ABBC6 /* UserService.swift in Sources */,
+				71DC633B2A156DA1001ABBC6 /* ContentViewModel.swift in Sources */,
 				71DC63392A15646B001ABBC6 /* SettingItemViewModel.swift in Sources */,
 				71DC63282A14DBDB001ABBC6 /* TabContainerView.swift in Sources */,
 				71DC632C2A14F55D001ABBC6 /* ChallengeListViewModel.swift in Sources */,
 				71DC630E2A1486EF001ABBC6 /* CreateView.swift in Sources */,
 				71DC63212A14C314001ABBC6 /* ChallengeService.swift in Sources */,
+				71DC633D2A156FA4001ABBC6 /* LoginSignupView.swift in Sources */,
 				71DC63332A151043001ABBC6 /* ChallengeItemViewModel.swift in Sources */,
 				71DC632A2A14F54C001ABBC6 /* ChallengeListView.swift in Sources */,
 				71DC63152A148DC6001ABBC6 /* CreateChallengeViewModel.swift in Sources */,

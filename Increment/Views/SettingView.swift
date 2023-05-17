@@ -11,8 +11,17 @@ struct SettingView: View {
     @StateObject private var viewModel = SettingViewModel()
     var body: some View {
         List(viewModel.itemViewModels.indices, id: \.self) { index in
-            Text(viewModel.itemViewModels[index].title)
-        }.onAppear {
+            Button {
+                viewModel.tappedItem(at: index)
+            } label: {
+                HStack {
+                    Image(systemName: viewModel.item(at: index).iconName)
+                    Text(viewModel.itemViewModels[index].title)
+                }
+            }
+        }
+        .navigationTitle(viewModel.title)
+        .onAppear {
             viewModel.onAppear()
         }
     }

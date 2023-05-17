@@ -14,11 +14,12 @@ struct IncrementApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var appState = AppState()
-    
+    @AppStorage("isDarkMode") private var isDarkMode = false
     var body: some Scene {
         WindowGroup {
             if appState.isLoggedIn {
                 TabContainerView()
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
             }
             else {
                 ContentView()
@@ -42,6 +43,7 @@ class AppState: ObservableObject {
     private let userService: UserServiceProtocol
     init(userService: UserServiceProtocol = UserService()){
         self.userService = userService
+//        try? Auth.auth().signOut()
         userService
             .observeAuthChanges()
             .map {$0 != nil}
