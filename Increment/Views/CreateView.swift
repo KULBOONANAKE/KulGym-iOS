@@ -27,7 +27,9 @@ struct CreateView : View {
                 Button {
                     viewModel.send(action: .createChallenge)
                 } label: {
-                    Text("Create").font(.system(size: 24, weight: .medium))
+                    Text("Create")
+                        .font(.system(size: 24, weight: .medium))
+                        .foregroundColor(.primary)
                 }
             }
         }

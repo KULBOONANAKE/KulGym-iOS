@@ -12,7 +12,15 @@ final class ChallengeListViewModel: ObservableObject {
     private let challengeService: ChallengeServiceProtocol
     private var cancellables: [AnyCancellable] = []
     @Published private(set) var itemViewModels: [ChallengeItemViewModel] = []
+    @Published private(set) var error: IncrementError?
+    @Published private(set) var isLoading = false
+    @Published var showingCreateModel = false
     let title = "Challenges"
+    
+    enum Action {
+        case retry
+        case create
+    }
     
     init(
         userService: UserServiceProtocol = UserService(),
@@ -23,19 +31,36 @@ final class ChallengeListViewModel: ObservableObject {
         observeChallenges()
     }
     
+    func send(action: Action){
+        switch action {
+        case .retry:
+            observeChallenges()
+        case .create:
+            showingCreateModel = true
+        }
+    }
+    
     private func observeChallenges() {
+        isLoading = true
         userService.currentUser()
             .compactMap { $0?.uid }
-            .flatMap { userId -> AnyPublisher<[Challenge], IncrementError> in
+            .flatMap { [weak self] userId -> AnyPublisher<[Challenge], IncrementError> in
+                guard let self = self else { return Fail(error: .default()).eraseToAnyPublisher() }
                 return self.challengeService.observeChallenges(userId: userId)
-            }.sink { completion in
+            }.sink { [weak self] completion in
+                guard let self = self else { return }
+                isLoading = false
                 switch completion {
                 case let .failure(error):
-                    print(error.localizedDescription)
+                    self.error = error
                 case .finished:
                     print("finished")
                 }
-            } receiveValue: { challenges in
+            } receiveValue: { [weak self] challenges in
+                guard let self = self else { return }
+                self.isLoading = false
+                self.error = nil
+                self.showingCreateModel = false
                 self.itemViewModels = challenges.map {.init($0)}
             }.store(in: &cancellables)
     }

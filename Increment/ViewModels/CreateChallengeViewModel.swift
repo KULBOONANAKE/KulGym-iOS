@@ -78,7 +78,7 @@ final class CreateChallengeViewModel : ObservableObject {
     private func currrentUserId() -> AnyPublisher<UserId , IncrementError> {
         return userService.currentUser().flatMap { user -> AnyPublisher<UserId, IncrementError> in
             if let userId = user?.uid {
-
+                
                 return Just(userId)
                     .setFailureType(to: IncrementError.self)
                     .eraseToAnyPublisher()
@@ -135,6 +135,8 @@ extension CreateChallengeViewModel {
             case pullups
             case pushups
             case situps
+            case muscleups
+            case handStand
             
             var toDropdownOption: DropdownOption {
                 .init(type: .text(rawValue), formatted: rawValue.capitalized)
@@ -142,7 +144,7 @@ extension CreateChallengeViewModel {
         }
         
         enum StartOption: Int, CaseIterable, DropdownOptionProtocol {
-            case one = 1, two, three, four, five
+            case one = 1, two = 10, three = 20, four = 30, five = 40, six = 50
             
             
             var toDropdownOption: DropdownOption {
@@ -151,7 +153,7 @@ extension CreateChallengeViewModel {
         }
         
         enum IncreaseOption: Int, CaseIterable, DropdownOptionProtocol {
-            case one = 1, two, three, four, five
+            case one = 1,  two, three, four, five, ten = 10
             
             
             var toDropdownOption: DropdownOption {
@@ -160,7 +162,7 @@ extension CreateChallengeViewModel {
         }
         
         enum LengthOption: Int, CaseIterable, DropdownOptionProtocol {
-            case seven = 7, fourteen = 14, twentyOne = 21, twentyEight = 28
+            case seven = 7, fourteen = 14, twentyOne = 21, twentyEight = 28, twomount = 60, sixmonht = 180, year = 365
             
             
             var toDropdownOption: DropdownOption {

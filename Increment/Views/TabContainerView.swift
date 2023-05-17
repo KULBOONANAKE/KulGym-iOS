@@ -31,7 +31,7 @@ struct TabContainerView: View {
                 ChallegeListView()
             }
         case .settings:
-            Text("Setting")
+            SettingView()
         }
     }
 }

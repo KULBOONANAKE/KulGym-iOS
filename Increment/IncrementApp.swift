@@ -19,7 +19,6 @@ struct IncrementApp: App {
         WindowGroup {
             if appState.isLoggedIn {
                 TabContainerView()
-//                ContentView()
             }
             else {
                 ContentView()
