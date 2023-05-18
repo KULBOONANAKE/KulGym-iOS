@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct LoginSignupView: View {
-    @ObservedObject var viewModel: LoginSignupViewModel
+    @StateObject private var viewModel: LoginSignupViewModel
+    @Binding var isPushed: Bool
     
-//    var isSignInButtonDisabled: Bool {
-//        [viewModel.emailText, viewModel.passwordText].contains(where: \.isEmpty)
-//    }
+    init(mode: LoginSignupViewModel.Mode, isPushed: Binding<Bool>) {
+        self._isPushed = isPushed
+        self._viewModel = .init(wrappedValue: .init(mode: mode))
+    }
+    
     
     var emailTextField: some View {
         TextField(viewModel.emailPlaceholderText, text: $viewModel.emailText)
@@ -70,13 +73,18 @@ struct LoginSignupView: View {
             actionButton
             Spacer()
         }
+        .padding()
+        .onReceive(viewModel.$isPushed) { isPushed in
+            self.isPushed = isPushed
+        }
+        
     }
 }
 
-struct Previews_LoginSignupView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            LoginSignupView(viewModel: .init(mode: .login, isPushed: .constant(false)))
-        }.environment(\.colorScheme, .dark)
-    }
-}
+//struct Previews_LoginSignupView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            LoginSignupView(viewModel: .init(mode: .login, isPushed: .constant(false)))
+//        }.environment(\.colorScheme, .dark)
+//    }
+//}

@@ -61,7 +61,7 @@ struct ContentView: View {
                     createButton
                     
                     NavigationLink(
-                        destination: LoginSignupView(viewModel: .init(mode: .login, isPushed: $viewModel.loginSignupPushed)),
+                        destination: LoginSignupView(mode: .login, isPushed: $viewModel.loginSignupPushed),
                         isActive: $viewModel.loginSignupPushed){}
                     alreadyButton
                 }
