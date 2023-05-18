@@ -28,6 +28,11 @@ final class LoginSignupViewModel: ObservableObject {
         self.mode = mode
         self.userService = userService
         self._isPushed = isPushed
+        
+        Publishers.CombineLatest($emailText, $passwordText)
+            .map { [weak self] email, password in
+                return self?.isValidEmail(email) == true && self?.isValidPassword(password) == true
+            }.assign(to: &$isValid)
     
     }
     
@@ -61,7 +66,15 @@ final class LoginSignupViewModel: ObservableObject {
     func tappedActionButton() {
         switch mode {
         case .login:
-            print("login")
+            userService.login(email: emailText, password: passwordText).sink { completion in
+                switch completion {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                case .finished: break
+                }
+            } receiveValue: { _ in }
+                .store(in: &cancellables)
+
         case .signup:
             userService.linkAccount(email: emailText, password: passwordText).sink { [weak self] completion in
                 switch completion {
@@ -75,6 +88,18 @@ final class LoginSignupViewModel: ObservableObject {
                 .store(in: &cancellables)
 
         }
+    }
+}
+
+extension LoginSignupViewModel {
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email) && email.count > 4
+    }
+    
+    func isValidPassword(_ password: String) -> Bool {
+        return password.count > 5
     }
 }
 

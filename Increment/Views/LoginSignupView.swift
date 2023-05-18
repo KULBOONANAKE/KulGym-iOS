@@ -10,9 +10,9 @@ import SwiftUI
 struct LoginSignupView: View {
     @ObservedObject var viewModel: LoginSignupViewModel
     
-    var isSignInButtonDisabled: Bool {
-        [viewModel.emailText, viewModel.passwordText].contains(where: \.isEmpty)
-    }
+//    var isSignInButtonDisabled: Bool {
+//        [viewModel.emailText, viewModel.passwordText].contains(where: \.isEmpty)
+//    }
     
     var emailTextField: some View {
         TextField(viewModel.emailPlaceholderText, text: $viewModel.emailText)
@@ -46,12 +46,12 @@ struct LoginSignupView: View {
         .frame(maxWidth: .infinity)
         .foregroundColor(.white)
         .background(
-            isSignInButtonDisabled ?
+            !viewModel.isValid ?
             LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
                 LinearGradient(colors: [.blue, .red], startPoint: .topLeading, endPoint: .bottomTrailing)
         )
         .cornerRadius(20)
-        .disabled(isSignInButtonDisabled)
+        .disabled(!viewModel.isValid)
         .padding(.horizontal)
     }
     

@@ -76,7 +76,7 @@ final class CreateChallengeViewModel : ObservableObject {
     
     
     private func currrentUserId() -> AnyPublisher<UserId , IncrementError> {
-        return userService.currentUser().flatMap { user -> AnyPublisher<UserId, IncrementError> in
+        return userService.currentUserPublisher().flatMap { user -> AnyPublisher<UserId, IncrementError> in
             if let userId = user?.uid {
                 
                 return Just(userId)

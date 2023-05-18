@@ -17,4 +17,5 @@ enum SettingItemType {
     case account
     case mode
     case privacy
+    case logout
 }
