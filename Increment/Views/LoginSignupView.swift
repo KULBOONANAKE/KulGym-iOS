@@ -15,30 +15,32 @@ struct LoginSignupView: View {
     }
     
     var emailTextField: some View {
-        TextField("Email", text: $viewModel.emailText)
+        TextField(viewModel.emailPlaceholderText, text: $viewModel.emailText)
             .padding(10)
-            .foregroundColor(.white)
+            .foregroundColor(.primary)
             .overlay {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.blue, lineWidth: 2)
             }
+            .autocapitalization(.none)
             .padding(.horizontal)
     }
     
     var passwordTextField: some View {
-        SecureField("Password", text: $viewModel.passwordText)
+        SecureField(viewModel.passwordPlaceholderText, text: $viewModel.passwordText)
             .padding(10)
-            .foregroundColor(.white)
+            .foregroundColor(.primary)
             .overlay {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(.red, lineWidth: 2)
             }
+            .autocapitalization(.none)
             .padding(.horizontal)
     }
     
     var actionButton: some View {
         Button(viewModel.buttonTitle) {
-            // action
+            viewModel.tappedActionButton()
         }
         .frame(height: 50)
         .frame(maxWidth: .infinity)
@@ -74,7 +76,7 @@ struct LoginSignupView: View {
 struct Previews_LoginSignupView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LoginSignupView(viewModel: .init(mode: .login))
+            LoginSignupView(viewModel: .init(mode: .login, isPushed: .constant(false)))
         }.environment(\.colorScheme, .dark)
     }
 }
