@@ -19,7 +19,7 @@ struct ChallegeItemView: View {
                 .font(.system(size: 24, weight: .bold))
             Spacer()
             Image(systemName: "trash").onTapGesture {
-                viewModel.tappedDelete()
+                viewModel.send(action: .delete)
             }
         }
     }
@@ -35,18 +35,19 @@ struct ChallegeItemView: View {
     var todayView: some View {
         VStack {
             Divider()
-            Text("Today")
+            Text(viewModel.todayTitle)
                 .font(.title3)
                 .fontWeight(.medium)
-            Text("1 pullup")
+            Text(viewModel.todayRepTitle)
                 .font(.system(size: 24, weight: .bold))
-            Button("Mark Done") {
-                
+            Button(viewModel.isDayComplete || viewModel.isComplete ? "Completed" : "Mark Done") {
+                viewModel.send(action: .toggleComplete)
             }
+            .disabled(viewModel.isComplete)
             .padding(.vertical, 10)
             .padding(.horizontal, 15)
             .font(Font.caption.weight(.semibold))
-            .background(Color.primaryButton)
+            .background(viewModel.isDayComplete ? Color.circleTrack : Color.primaryButton)
             .cornerRadius(8)
         }
     }
@@ -61,6 +62,7 @@ struct ChallegeItemView: View {
                 )
                 dailyIncreaseRow
                 todayView
+                
             }.padding(.vertical, 10)
             Spacer()
         }
