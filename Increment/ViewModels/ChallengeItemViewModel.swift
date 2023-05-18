@@ -7,11 +7,26 @@
 
 import Foundation
 
-struct ChallengeItemViewModel: Hashable {
+struct ChallengeItemViewModel: Identifiable {
     private let challenge: Challenge
+    
+    var id: String {
+        challenge.id!
+    }
     
     var title: String {
         challenge.exercise.capitalized
+    }
+    
+    var progressCircleViewModel: ProgressCircleViewModel {
+        let dayNumber = daysFromStart + 1
+        let title = "Day"
+        let message = isComplete ? "Done" : "\(dayNumber) of \(challenge.length)"
+        return .init(
+            title: title,
+            message: message,
+            percentageComplete: Double(dayNumber) / Double(challenge.length)
+        )
     }
     
     private var daysFromStart: Int {
@@ -24,7 +39,7 @@ struct ChallengeItemViewModel: Hashable {
     }
     
     private var isComplete: Bool {
-        daysFromStart - challenge.length < 0
+        daysFromStart - challenge.length >= 0
     }
     
     
@@ -38,7 +53,25 @@ struct ChallengeItemViewModel: Hashable {
         "+\(challenge.increase) daily"
     }
     
-    init(_ challenge: Challenge) {
+    private let onDelete: (String) -> Void
+    
+    let todayTitle = "Today"
+    
+    var todayRepTitle: String {
+        let repNumber = challenge.startAmount + (daysFromStart * challenge.increase)
+    }
+    
+    init(
+        _ challenge: Challenge,
+        onDelete: @escaping (String) -> Void
+    ) {
         self.challenge = challenge
+        self.onDelete = onDelete
+    }
+    
+    func tappedDelete() {
+        if let id = challenge.id{
+            onDelete(id)
+        }
     }
 }

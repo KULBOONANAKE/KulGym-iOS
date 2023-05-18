@@ -35,7 +35,7 @@ struct ChallegeListView: View {
         ScrollView {
             VStack{
                 LazyVGrid(columns: [.init(.flexible(), spacing: 20), .init(.flexible())], spacing: 20) {
-                    ForEach(viewModel.itemViewModels, id: \.self) { viewModel in
+                    ForEach(viewModel.itemViewModels, id: \.id) { viewModel in
                         ChallegeItemView(viewModel: viewModel)
                     }
                 }
@@ -57,46 +57,4 @@ struct ChallegeListView: View {
     }
 }
 
-struct ChallegeItemView: View {
-    private let viewModel: ChallengeItemViewModel
-    init(viewModel: ChallengeItemViewModel) {
-        self.viewModel = viewModel
-    }
-    
-    var titleRow: some View {
-        HStack {
-            Text(viewModel.title)
-                .font(.system(size: 24, weight: .bold))
-            Spacer()
-            Image(systemName: "trash")
-        }
-    }
-    
-    var dailyIncreaseRow: some View {
-        HStack {
-            Text(viewModel.dailyIncreaseText)
-                .font(.system(size: 24, weight: .bold))
-            Spacer()
-        }
-    }
-    
-    var body: some View {
-        HStack {
-            Spacer()
-            VStack {
-                titleRow
-                Text(viewModel.statusText)
-                    .font(.system(size:12, weight: .bold))
-                    .padding(25)
-                dailyIncreaseRow
-            }.padding(.vertical, 10)
-            Spacer()
-        }
-        .background(
-            Rectangle()
-                .fill(Color.primaryButton)
-                .cornerRadius(5)
-        )
-    }
-    
-}
+

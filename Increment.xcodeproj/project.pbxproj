@@ -35,6 +35,9 @@
 		71DC633B2A156DA1001ABBC6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC633A2A156DA1001ABBC6 /* ContentViewModel.swift */; };
 		71DC633D2A156FA4001ABBC6 /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC633C2A156FA4001ABBC6 /* LoginSignupView.swift */; };
 		71DC633F2A157000001ABBC6 /* LoginSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC633E2A157000001ABBC6 /* LoginSignupViewModel.swift */; };
+		71DC63432A15D7F7001ABBC6 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63422A15D7F7001ABBC6 /* ProgressCircleView.swift */; };
+		71DC63452A15D814001ABBC6 /* ProgressCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63442A15D814001ABBC6 /* ProgressCircleViewModel.swift */; };
+		71DC63472A15E60B001ABBC6 /* ChallengItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC63462A15E60B001ABBC6 /* ChallengItemView.swift */; };
 		F7014D2A081EC7731B544DF7 /* Pods_Increment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35723B4F8FFC2F6D439A520F /* Pods_Increment.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		71DC633A2A156DA1001ABBC6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		71DC633C2A156FA4001ABBC6 /* LoginSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
 		71DC633E2A157000001ABBC6 /* LoginSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupViewModel.swift; sourceTree = "<group>"; };
+		71DC63422A15D7F7001ABBC6 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
+		71DC63442A15D814001ABBC6 /* ProgressCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleViewModel.swift; sourceTree = "<group>"; };
+		71DC63462A15E60B001ABBC6 /* ChallengItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 				71DC63382A15646B001ABBC6 /* SettingItemViewModel.swift */,
 				71DC633A2A156DA1001ABBC6 /* ContentViewModel.swift */,
 				71DC633E2A157000001ABBC6 /* LoginSignupViewModel.swift */,
+				71DC63442A15D814001ABBC6 /* ProgressCircleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -182,6 +189,8 @@
 				71DC63292A14F54C001ABBC6 /* ChallengeListView.swift */,
 				71DC63342A156444001ABBC6 /* SettingView.swift */,
 				71DC633C2A156FA4001ABBC6 /* LoginSignupView.swift */,
+				71DC63422A15D7F7001ABBC6 /* ProgressCircleView.swift */,
+				71DC63462A15E60B001ABBC6 /* ChallengItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71DC63262A14D7C6001ABBC6 /* AuthPublisher.swift in Sources */,
+				71DC63472A15E60B001ABBC6 /* ChallengItemView.swift in Sources */,
 				71DC63372A156453001ABBC6 /* SettingViewModel.swift in Sources */,
 				71DC63352A156444001ABBC6 /* SettingView.swift in Sources */,
 				71DC630A2A146E8C001ABBC6 /* PrimaryButtonStyle.swift in Sources */,
@@ -354,9 +364,11 @@
 				71DC630E2A1486EF001ABBC6 /* CreateView.swift in Sources */,
 				71DC63212A14C314001ABBC6 /* ChallengeService.swift in Sources */,
 				71DC633D2A156FA4001ABBC6 /* LoginSignupView.swift in Sources */,
+				71DC63452A15D814001ABBC6 /* ProgressCircleViewModel.swift in Sources */,
 				71DC63332A151043001ABBC6 /* ChallengeItemViewModel.swift in Sources */,
 				71DC632A2A14F54C001ABBC6 /* ChallengeListView.swift in Sources */,
 				71DC63152A148DC6001ABBC6 /* CreateChallengeViewModel.swift in Sources */,
+				71DC63432A15D7F7001ABBC6 /* ProgressCircleView.swift in Sources */,
 				71DC63102A14872D001ABBC6 /* DropdownView.swift in Sources */,
 				71DC63232A14D3EB001ABBC6 /* IncrementError.swift in Sources */,
 			);
