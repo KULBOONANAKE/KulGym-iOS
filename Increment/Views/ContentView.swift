@@ -9,51 +9,71 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ContentViewModel()
+    
+    var title: some View {
+        Text(viewModel.title)
+            .font(.system(size:64, weight: .medium))
+            .foregroundColor(.white)
+    }
+    
+    var createButton: some View {
+        Button(action: {
+            viewModel.createPushed = true
+        }) {
+            HStack(spacing: 15) {
+                Spacer()
+                Image(systemName: viewModel.createButtonImageName)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                Text(viewModel.createButtonTitle)
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+        }
+        .padding(15)
+        .buttonStyle(PrimaryButtonStyle())
+    }
+    
+    var alreadyButton: some View {
+        Button(viewModel.alreadyButtonTitle) {
+            viewModel.loginSignupPushed = true
+        }.foregroundColor(.white)
+    }
+    
+    var bgImage: some View {
+        Image(viewModel.backgroundImageName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .overlay(Color.black.opacity(0.1))
+    }
+    
     var body: some View {
         NavigationView {
             GeometryReader { proxy in
                 VStack {
                     Spacer().frame(height: proxy.size.height * 0.08)
-                    Text("KulGym")
-                        .font(.system(size:64, weight: .medium))
-                        .foregroundColor(.white)
+                    title
                     Spacer()
                     NavigationLink(destination:
                                     CreateView(), isActive: $viewModel.createPushed
-                    ){
-                        Button(action: {
-                            viewModel.createPushed = true
-                        }) {
-                            HStack(spacing: 15) {
-                                Spacer()
-                                Image(systemName: "plus.circle")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Text("Create a challenge")
-                                    .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-                        }
-                        .padding(15)
-                        .buttonStyle(PrimaryButtonStyle())
-                    }
-                    NavigationLink(destination: LoginSignupView(), isActive: $viewModel.loginSignupPushed){}
-                    Button("I already have an account") {
-                        viewModel.loginSignupPushed = true
-                    }.foregroundColor(.white)
+                    ){}
+                    createButton
+                    
+                    NavigationLink(
+                        destination: LoginSignupView(viewModel: .init(mode: .login)),
+                        isActive: $viewModel.loginSignupPushed){}
+                    alreadyButton
                 }
                 .padding(.bottom, 15)
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity
                 )
-                .background(Image("frog-stand")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .overlay(Color.black.opacity(0.1))
-                    .frame(width: proxy.size.width)
-                    .edgesIgnoringSafeArea(.all)
+                .background(
+                    bgImage
+                        .frame(width: proxy.size.width)
+                        .edgesIgnoringSafeArea(.all)
                 )
             }
         }.accentColor(.primary)
